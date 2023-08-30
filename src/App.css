@@ -1,0 +1,15 @@
+@import './assets/css/root.css';
+*{
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+.icon-global{
+  color:var(--white);
+  width:2.5rem ;
+  height:2.5rem ;
+}
+.app{
+  min-width: 20rem;
+  background: var(--bg-primary);
+}

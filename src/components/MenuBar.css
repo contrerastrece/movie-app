@@ -1,0 +1,5 @@
+@import '../assets/css/root.css';
+
+.menuBar{
+  background-color:var(--bg-secondary);
+}
