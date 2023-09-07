@@ -63,7 +63,7 @@ const PopularMovies = () => {
     <div className="w-full m-0 p-0 ">
       <Carousel {...optionsCarousel}>
         {trendMovie.map((e) => (
-          <div key={e.id} className="cursor-pointer relative h-[33rem]">
+          <div key={e.id} className="cursor-pointer relative h-[33rem] ">
             <picture>
               {/* <!-- Imagen para dispositivos móviles --> */}
               <source
@@ -81,9 +81,13 @@ const PopularMovies = () => {
                 alt=""
               />
             </picture>
-            <p className="absolute content-text top-0 left-0 w-full h-full  text-white text-5xl flex items-center justify-center">
-              {e.title}
-            </p>
+            <div className="absolute z-10 content-text bottom-10  w-[90%] md:w-[60%] h-auto flex  flex-col items-center justify-center left-1/2 transform -translate-x-1/2">
+
+              <h3 className="text-white text-4xl md:text-5xl font-bold my-5">
+                {e.title}
+              </h3>
+              <p className="text-[0.9rem] line-clamp-2 font-extralight">{e.overview}</p>
+            </div>
             <div className="absolute w-full top-0 left-0 h-full shadow-carousel"></div>
           </div>
         ))}
