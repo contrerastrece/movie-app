@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
+import Detail from './pages/Detail';
 function App() {
  
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/pages/Search' element={<Search/>}/>
             <Route path='/pages/Movies' element={<Movies/>}/>
             <Route path='/pages/Series' element={<Series/>}/>
+            <Route path='/pages/Detail/:id' element={<Detail/>}/>
           </Routes>
           <MenuBar/>
         </IconContext.Provider>
