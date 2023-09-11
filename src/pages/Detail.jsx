@@ -1,12 +1,14 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useFetch from "../hook/useFetch";
-import Card from "../components/Card";
+import Credits from "../components/Credits";
+import Similar from "../components/Similar";
 
 const Detail = () => {
   const { id } = useParams();
-  const urlDetails = `movie/${id}&append_to_response=videos`;
+  const urlDetails = `movie/${id}`;
   const { data, loading } = useFetch(urlDetails);
+
   return (
     <div className="pb-16">
       {loading ? (
@@ -23,9 +25,17 @@ const Detail = () => {
           <p>Calificación: {data.vote_average}</p>
         </>
       )}
+
       <hr />
       <h3>Trailer</h3>
-      <Card id={id} />
+
+      <hr />
+      <h3>Similares a esto...</h3>
+      <Similar id={id} />
+
+      <hr />
+      <h3>Personajes</h3>
+      <Credits id={id} />
 
       <Link to="/">Volver</Link>
     </div>

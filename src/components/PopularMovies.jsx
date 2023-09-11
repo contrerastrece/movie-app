@@ -7,7 +7,7 @@ const PopularMovies = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const apiUrl ="movie/popular";
   const { data, loading } = useFetch(apiUrl);
-  console.log(data);
+
   useEffect(() => {
     // Función para verificar si es una versión de escritorio
     function checkIsDesktop() {
