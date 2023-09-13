@@ -3,6 +3,8 @@ import Card from "./Card";
 import useFetch from "../hook/useFetch";
 
 const Similar = ({ id }) => {
+  // const currentYear = new Date().getFullYear(); // Obtiene el año actual
+
   const urlSimilar = `movie/${id}/similar`;
   const { data, loading } = useFetch(urlSimilar);
 

@@ -1,0 +1,15 @@
+/* Estilos CSS para hacer que el video sea responsive */
+.youtube-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporción de aspecto 16:9 (9 / 16 = 0.5625) */
+  overflow: hidden;
+}
+
+/* Estilos CSS para el video dentro del contenedor */
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

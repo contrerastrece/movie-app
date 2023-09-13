@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import useFetch from "../hook/useFetch";
 import Credits from "../components/Credits";
 import Similar from "../components/Similar";
+import Trailer from "../components/Trailer";
 
 const Detail = () => {
   const { id } = useParams();
@@ -26,15 +27,13 @@ const Detail = () => {
         </>
       )}
 
-      <hr />
-      <h3>Trailer</h3>
+      <h3>Video...</h3>
+      <Trailer id={id}/>
 
-      <hr />
       <h3>Similares a esto...</h3>
       <Similar id={id} />
 
-      <hr />
-      <h3>Personajes</h3>
+      <h3>Credits</h3>
       <Credits id={id} />
 
       <Link to="/">Volver</Link>
