@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import NoImage from "../assets/images/NoImage.jpg";
 
 const Card = ({ data, loading }) => {
-  const [visibleItems, setVisibleItems] = useState(5);
+  const [visibleItems, setVisibleItems] = useState(3);
 
   const loadMoreItems = () => {
     // Incrementa la cantidad de elementos visibles cuando se hace clic en "Mostrar Más"
-    const newVisibleItems = visibleItems + 5; // Por ejemplo, agrega 5 elementos más cada vez
+    const newVisibleItems = visibleItems + 10; // Por ejemplo, agrega 10 elementos más cada vez
 
     // Verifica si ya se han mostrado todos los elementos
     if (newVisibleItems >= data.length) {

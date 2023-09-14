@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function useFetch(url) {
   const baseUrl ='https://api.themoviedb.org/3/';
-  const lng='?language=en-EN';
+  const lng=url.includes("?")?'&language=en-US':'?language=en-US';
   const page='&page=1';
   const bla=`&sort_by=popularity.desc&with_release_type=2|3`;
   const link=baseUrl+url+lng+page+bla;
@@ -14,6 +14,7 @@ function useFetch(url) {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGI2NzViNTBjZDRhMmM5NjRhYmNjNzA1OTU3ZTgzMCIsInN1YiI6IjY0ZWUwZDdiNGNiZTEyMDBmZTBkODE2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.acB_V0mV7MkKdHm4zxT8XHxg9W39Uz5qmacUwyoY63c",
     },
   };
+  console.log(link)
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

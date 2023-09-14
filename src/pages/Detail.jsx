@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams,useNavigate } from "react-router-dom";
 import useFetch from "../hook/useFetch";
 import Credits from "../components/Credits";
 import Similar from "../components/Similar";
@@ -10,6 +10,8 @@ const Detail = () => {
   const { id } = useParams();
   const urlDetails = `movie/${id}`;
   const { data, loading } = useFetch(urlDetails);
+  const history = useNavigate();
+  console.log(history);
 
   return (
     <div className="pb-16">
@@ -33,7 +35,8 @@ const Detail = () => {
       <Similar id={id} />
       <Credits id={id} />
 
-      <Link to="/">Volver</Link>
+      <Link to="/">Home</Link>
+      <button onClick={() => history(-1)}>Volver</button> 
     </div>
   );
 };
