@@ -4,6 +4,7 @@ import useFetch from "../hook/useFetch";
 import Credits from "../components/Credits";
 import Similar from "../components/Similar";
 import Trailer from "../components/Trailer";
+import Recomendations from "../components/Recomendations";
 
 const Detail = () => {
   const { id } = useParams();
@@ -27,13 +28,9 @@ const Detail = () => {
         </>
       )}
 
-      <h3>Video...</h3>
-      <Trailer id={id}/>
-
-      <h3>Similares a esto...</h3>
+      <Trailer id={id} />
+      <Recomendations id={id} />
       <Similar id={id} />
-
-      <h3>Credits</h3>
       <Credits id={id} />
 
       <Link to="/">Volver</Link>

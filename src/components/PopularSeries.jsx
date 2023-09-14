@@ -2,9 +2,10 @@ import React from "react";
 import useFetch from "../hook/useFetch";
 import Card from "./Card";
 
-const UpcomingMovies = () => {
-  const apiUrl = "movie/upcoming";
+const PopularSeries = () => {
+  const apiUrl = "tv/popular";
   const { data, loading } = useFetch(apiUrl);
+  console.log(data);
 
   return (
     <>
@@ -18,4 +19,4 @@ const UpcomingMovies = () => {
   );
 };
 
-export default UpcomingMovies;
+export default PopularSeries;

@@ -6,13 +6,21 @@ const Card = ({ data, loading }) => {
   const [visibleItems, setVisibleItems] = useState(5);
 
   const loadMoreItems = () => {
-    setVisibleItems(visibleItems + 5);
+    // Incrementa la cantidad de elementos visibles cuando se hace clic en "Mostrar Más"
+    const newVisibleItems = visibleItems + 5; // Por ejemplo, agrega 5 elementos más cada vez
+
+    // Verifica si ya se han mostrado todos los elementos
+    if (newVisibleItems >= data.length) {
+      setVisibleItems(data.length);
+    } else {
+      setVisibleItems(newVisibleItems);
+    }
   };
 
-  // console.log("🫰",data);
+  console.log("🫰",visibleItems,"/",data.length);
   return (
-    <>
-      <div className="grid grid-cols-3 border gap-3">
+    <div className="grid items-center p-2">
+      <div className="grid grid-cols-3 gap-3">
         {loading ? (
           <>Loading...</>
         ) : (
@@ -39,11 +47,12 @@ const Card = ({ data, loading }) => {
           </>
         )}
       </div>
+     
       {visibleItems < data.length && (
         // Muestra el botón "Mostrar Más" solo si hay más elementos para cargar
-        <button onClick={loadMoreItems}>Mostrar Más</button>
-      )}
-    </>
+        <button onClick={loadMoreItems} className="w-4/5 p-1 bg-white text-blue-900 rounded-xl mx-auto my-3">Mostrar Más...</button>
+        )}
+    </div>
   );
 };
 

@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 
 function useFetch(url) {
   const baseUrl ='https://api.themoviedb.org/3/';
-  const lng='?language=es-ES';
+  const lng='?language=en-EN';
   const page='&page=1';
-  const link=baseUrl+url+lng+page;
+  const bla=`&sort_by=popularity.desc&with_release_type=2|3`;
+  const link=baseUrl+url+lng+page+bla;
   const options = {
     method: "GET",
     headers: {

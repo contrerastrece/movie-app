@@ -10,16 +10,19 @@ const Trailer = ({ id }) => {
   const opts = {
     playerVars: {
       autoplay: 0, // Reproducir automáticamente el video
-      modestbranding: 1, // Logotipo de YouTube minimalista
+      modestbranding: 0, // Logotipo de YouTube minimalista
       controls: 0, // Ocultar los controles de reproducción
       showinfo: 0, // Ocultar información del video
       rel: 0, // Evitar recomendaciones al finalizar
       disablekb: 1,
+      cc_lang_pref: 'es-ES',
+      cc_load_policy: 1
     },
   };
 
   return (
     <>
+    <h2>Videos...</h2>
       {loading ? (
         <h2>Loading...</h2>
       ) : (

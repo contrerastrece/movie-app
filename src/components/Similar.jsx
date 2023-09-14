@@ -3,19 +3,17 @@ import Card from "./Card";
 import useFetch from "../hook/useFetch";
 
 const Similar = ({ id }) => {
-  // const currentYear = new Date().getFullYear(); // Obtiene el año actual
-
   const urlSimilar = `movie/${id}/similar`;
   const { data, loading } = useFetch(urlSimilar);
 
   return (
     <>
-      <h2>SImilar</h2>
+    <h2>Similar a esto... 😁</h2>
       {loading ? (
         <h1>Loading</h1>
       ) : (
         <Card
-          data={data.results.filter((e) => e.poster_path).slice(0, 6)}
+          data={data.results.filter((e) => e.poster_path)}
           loading={loading}
         />
       )}
