@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 function useFetch(url) {
   const baseUrl = "https://api.themoviedb.org/3/";
   const lng = url.includes("?") ? "&language=en-US" : "?language=en-US";
-  const page = "&page=1";
-  const bla = `&sort_by=popularity.desc&with_release_type=2|3`;
-  const link = baseUrl + url + lng + page + bla;
+  // const page = "&page=1";
+  const watchRegion = "&watch_region=PE";
+  const sort = `&sort_by=popularity.desc`;
+  const link = baseUrl + url + lng + watchRegion  + sort;
+  console.log(link);
   const options = {
     method: "GET",
     headers: {

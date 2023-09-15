@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchAll from "../components/SearchAll";
 
 const Search = () => {
   const [search, setSearch] = useState("");
-
 
   console.log(search);
   const handleChange = (e) => {
@@ -12,7 +11,7 @@ const Search = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div className="flex flex-col items-center py-[2rem] gap-8 h-[100dvh]">

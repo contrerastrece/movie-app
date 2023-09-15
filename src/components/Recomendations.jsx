@@ -5,7 +5,7 @@ import Card from "./Card";
 const Recomendations = ({ id, mediaType }) => {
   const urlRecomendations = `${mediaType}/${id}/recommendations`;
   const { data, loading } = useFetch(urlRecomendations);
-  console.log(data, "🥹");
+  // console.log(data, "🥹");
 
   return (
     <>
