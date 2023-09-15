@@ -1,15 +1,14 @@
 import React from 'react'
-import PopularSeries from '../components/PopularSeries'
 import Categories from '../components/Categories'
-import TopSeries from '../components/TopSeries'
+import Popular from '../components/Popular'
+import TopRated from '../components/TopRated'
 
 const Series = () => {
   return (
-    <div>
+    <div className='p-4 pb-14'>
       <Categories type={"tv"} />
-      <TopSeries/>
-      <PopularSeries />
-      
+      <TopRated mediaType={"tv"}/>
+      <Popular mediaType={"tv"}/>
     </div>
   )
 }

@@ -7,12 +7,13 @@ import Trailer from "../components/Trailer";
 import Recomendations from "../components/Recomendations";
 
 const Detail = () => {
-  const { id } = useParams();
-  const urlDetails = `movie/${id}`;
+  const {media_type,id} = useParams();
+  console.log(id,media_type);
+  const urlDetails = `${media_type}/${id}`;
+  console.log(urlDetails);
   const { data, loading } = useFetch(urlDetails);
   const history = useNavigate();
-  console.log(history);
-
+console.log(data);
   return (
     <div className="pb-16">
       {loading ? (
@@ -20,20 +21,20 @@ const Detail = () => {
       ) : (
         <>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
-            alt={data.title}
+            src={`https://image.tmdb.org/t/p/w780/${data?.poster_path}`}
+            alt={data?.title || data?.name}
           />
-          <h1>{data.title}</h1>
-          <p>{data.overview}</p>
-          <p>Fecha de lanzamiento: {data.release_date}</p>
-          <p>Calificación: {data.vote_average}</p>
+          <h1>{data?.title || data?.name}</h1>
+          <p>{data?.overview}</p>
+          <p>Fecha de lanzamiento: {data?.release_date || data?.first_air_date} </p>
+          <p>Calificación: {data?.vote_average}</p>
         </>
       )}
 
-      <Trailer id={id} />
-      <Recomendations id={id} />
-      <Similar id={id} />
-      <Credits id={id} />
+      <Trailer id={id} mediaType={media_type}/>
+      <Recomendations id={id} mediaType={media_type}/>
+      <Similar id={id} mediaType={media_type} />
+      <Credits id={id} mediaType={media_type}/>
 
       <Link to="/">Home</Link>
       <button onClick={() => history(-1)}>Volver</button> 

@@ -3,7 +3,7 @@ import Carousel from "nuka-carousel";
 import "../assets/css/carousel.css";
 import useFetch from "../hook/useFetch";
 
-const PopularMovies = () => {
+const PopularCarousel = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const apiUrl ="movie/popular";
   const { data, loading } = useFetch(apiUrl);
@@ -79,4 +79,4 @@ const PopularMovies = () => {
   );
 };
 
-export default PopularMovies;
+export default PopularCarousel;

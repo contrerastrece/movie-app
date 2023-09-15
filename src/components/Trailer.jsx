@@ -3,10 +3,9 @@ import useFetch from "../hook/useFetch";
 import YouTube from "react-youtube";
 import "../assets/css/trailer.css";
 
-const Trailer = ({ id }) => {
-  const urlvideo = `movie/${id}/videos`;
+const Trailer = ({ id, mediaType}) => {
+  const urlvideo = `${mediaType}/${id}/videos`;
   const { data, loading } = useFetch(urlvideo);
-  console.log(data);
   const opts = {
     playerVars: {
       autoplay: 0, // Reproducir automáticamente el video
@@ -27,7 +26,7 @@ const Trailer = ({ id }) => {
         <h2>Loading...</h2>
       ) : (
         <>
-          {data.results.map((v) => (
+          {data?.results?.map((v) => (
             <YouTube
               key={v?.key}
               videoId={v?.key}

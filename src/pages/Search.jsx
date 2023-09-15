@@ -15,7 +15,7 @@ const Search = () => {
   }
 
   return (
-    <div className="flex flex-col items-center py-[2rem] gap-8">
+    <div className="flex flex-col items-center py-[2rem] gap-8 h-[100dvh]">
       <form action="" onSubmit={handleSubmit}>
         <input
           onChange={handleChange}

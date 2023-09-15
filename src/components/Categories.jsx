@@ -6,7 +6,6 @@ const Categories = ({type}) => {
 
   const apiUrl = `genre/${type}/list`;
   const { data, loading } = useFetch(apiUrl);
-  console.log(data);
   const handleFilterCategory = (categoryId) => {
     setCategory(categoryId);
     console.log(category);

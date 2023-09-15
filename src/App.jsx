@@ -18,7 +18,7 @@ function App() {
             <Route path='/pages/Search' element={<Search/>}/>
             <Route path='/pages/Movies' element={<Movies/>}/>
             <Route path='/pages/Series' element={<Series/>}/>
-            <Route path='/pages/Detail/:id' element={<Detail/>}/>
+            <Route path='/pages/Detail/:media_type/:id' element={<Detail/>}/>
           </Routes>
           <MenuBar/>
         </IconContext.Provider>

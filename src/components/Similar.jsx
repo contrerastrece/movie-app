@@ -2,8 +2,8 @@ import React from "react";
 import Card from "./Card";
 import useFetch from "../hook/useFetch";
 
-const Similar = ({ id }) => {
-  const urlSimilar = `movie/${id}/similar`;
+const Similar = ({ id , mediaType}) => {
+  const urlSimilar = `${mediaType}/${id}/similar`;
   const { data, loading } = useFetch(urlSimilar);
 
   return (
@@ -13,7 +13,7 @@ const Similar = ({ id }) => {
         <h1>Loading</h1>
       ) : (
         <Card
-          data={data.results.filter((e) => e.poster_path)}
+          data={data?.results?.filter((e) => e.poster_path)}
           loading={loading}
         />
       )}

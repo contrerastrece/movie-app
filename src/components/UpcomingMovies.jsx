@@ -2,8 +2,8 @@ import React from "react";
 import useFetch from "../hook/useFetch";
 import Card from "./Card";
 
-const UpcomingMovies = () => {
-  const apiUrl = "movie/upcoming";
+const UpcomingMovies = ({mediaType}) => {
+  const apiUrl = `${mediaType}/upcoming`;
   const { data, loading } = useFetch(apiUrl);
 
   return (
@@ -12,7 +12,7 @@ const UpcomingMovies = () => {
       {loading ? (
         <h2>Loading</h2>
       ) : (
-        <Card data={data.results} loading={loading} />
+        <Card data={data?.results} loading={loading} mediaType={mediaType}/>
       )}
     </>
   );
