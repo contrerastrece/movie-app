@@ -15,6 +15,7 @@ const Similar = ({ id , mediaType}) => {
         <Card
           data={data?.results?.filter((e) => e.poster_path)}
           loading={loading}
+          mediaType={mediaType}
         />
       )}
     </>

@@ -25,11 +25,10 @@ console.log(data);
               className="w-[4rem] flex-shrink-0"
             >
               <img
-                src={`https://image.tmdb.org/t/p/original/${e.logo_path}`}
+                src={`https://image.tmdb.org/t/p/w45/${e.logo_path}`}
                 alt={e.provider_name} 
                 className="snap-center rounded-full"
               />
-              {/* <p className="text-[0.8rem]">{e.provider_name}</p> */}
             </li>
           ))}
         </ul>

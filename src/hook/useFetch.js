@@ -7,7 +7,7 @@ function useFetch(url) {
   const watchRegion = "&watch_region=PE";
   const sort = `&sort_by=popularity.desc`;
   const link = baseUrl + url + lng + watchRegion  + sort;
-  console.log(link);
+  // console.log(link);
   const options = {
     method: "GET",
     headers: {

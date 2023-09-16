@@ -34,7 +34,7 @@ const Card = ({ data, loading, mediaType }) => {
                 <img
                   src={
                     e.poster_path || e.profile_path
-                      ? `https://image.tmdb.org/t/p/w500/${
+                      ? `https://image.tmdb.org/t/p/w300/${
                           e.poster_path || e.profile_path
                         }`
                       : NoImage

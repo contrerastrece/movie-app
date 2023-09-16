@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useFetch from "../hook/useFetch";
 import YouTube from "react-youtube";
 import "../assets/css/trailer.css";
+import { BsFillCollectionPlayFill } from "react-icons/bs";
 
 const Trailer = ({ id, mediaType}) => {
   const urlvideo = `${mediaType}/${id}/videos`;
@@ -9,8 +10,8 @@ const Trailer = ({ id, mediaType}) => {
   // const [trailer, setTrailer] = useState(null);
 
  const trailer=data?.results?.find(vid=>vid.name==="Official Trailer");
- console.log(trailer,"🫰");
-  console.log(data);
+//  console.log(trailer,"🫰");
+//   console.log(data);
   const opts = {
     playerVars: {
       autoplay: 0, // Reproducir automáticamente el video
@@ -25,25 +26,29 @@ const Trailer = ({ id, mediaType}) => {
       iv_load_policy:0
     },
   };
-
+  const handleTrailer=()=>{
+    console.log("trailer")
+  }
   return (
-    <>
-    <h2>{trailer?trailer?.name:data?.results[0]?.name}</h2>
+    <div className="flex justify-center items-center gap-2">
+    
       {loading ? (
         <h2>Loading...</h2>
       ) : (
         <>
         {data?.results?.length ? (
-          <YouTube
-          videoId={trailer?(trailer?.key):(data?.results?.find((result) => result?.official === true)?.key||data?.results[0]?.key)}
-          className="youtube-container"
-          opts={opts}
-          />
+          // <YouTube
+          // videoId={trailer?(trailer?.key):(data?.results?.find((result) => result?.official === true)?.key||data?.results[0]?.key)}
+          // className="youtube-container"
+          // opts={opts}
+          // />
+          <BsFillCollectionPlayFill onClick={handleTrailer}/>
           
-          ):<>No se Encontró el Trailer</>}
+          ):""}
          </>
         )}
-    </>
+        <h2>{trailer?<>Watch Trailer</>:""}</h2>
+    </div>
   );
 };
 
