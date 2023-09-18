@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NoImage from "../assets/images/NoImage.jpg";
+import Points from "./Points";
 
 const Card = ({ data, loading, mediaType }) => {
   const [visibleItems, setVisibleItems] = useState(3);
@@ -41,8 +42,12 @@ const Card = ({ data, loading, mediaType }) => {
                   }
                   alt={e.title}
                   className="rounded-lg "
+                  loading="lazy"
                 />
-                <p className="absolute bg-white text-black">{e.media_type}</p>
+                {/* <p className="absolute bg-white text-black">{e.media_type}</p> */}
+                <div className="absolute w-[2rem] bottom-2 right-1 bg-[#1e2732] rounded-full">
+                  <Points data={e} />
+                </div>
               </Link>
             ))}
           </>
@@ -53,7 +58,7 @@ const Card = ({ data, loading, mediaType }) => {
         // Muestra el botón "Mostrar Más" solo si hay más elementos para cargar
         <button
           onClick={loadMoreItems}
-          className="w-4/5 p-1 bg-white text-blue-900 rounded-xl mx-auto my-3"
+          className="w-4/5 p-1 bg-[#8b98a5] text-[#f7f9f9] rounded-xl mx-auto my-3"
         >
           Mostrar Más...
         </button>

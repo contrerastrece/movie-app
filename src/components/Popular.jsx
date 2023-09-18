@@ -8,7 +8,7 @@ const Popular = ({mediaType}) => {
 
   return (
     <>
-      <h2>Popular⚡</h2>
+      <h2>Popular {mediaType}⚡</h2>
       {loading ? (
         <h2>Loading</h2>               
       ) : (

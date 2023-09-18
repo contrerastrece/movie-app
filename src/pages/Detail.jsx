@@ -5,11 +5,10 @@ import Credits from "../components/Credits";
 import Similar from "../components/Similar";
 import Trailer from "../components/Trailer";
 import Recomendations from "../components/Recomendations";
-import SeasonTv from "../components/SeasonTv";
 import ListEpisodes from "../components/ListEpisodes";
+import Points from "../components/Points";
 
 import "react-circular-progressbar/dist/styles.css";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "../assets/css/carousel.css";
 
 const Detail = () => {
@@ -31,23 +30,14 @@ const Detail = () => {
               src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
               alt={data?.title || data?.name}
               className="object-cover object-center  w-full  top-0"
+              loading="lazy"
             />
             {/* Shadow */}
             <div className="absolute w-full top-0 left-0 h-full shadow-carousel"></div>
 
             {/* Circle Average */}
             <div className="w-[3rem] absolute bottom-4 right-4 font-bold ">
-              <CircularProgressbar
-                value={Math.ceil(data?.vote_average)}
-                maxValue={10}
-                text={`${Math.ceil(data?.vote_average * 10) / 10}`}
-                styles={buildStyles({
-                  textColor: "#1d9bf0",
-                  pathColor: "#1d9bf0",
-                  trailColor: "#fff",
-                  textSize: "2.5rem",
-                })}
-              />
+              <Points data={data}/>
             </div>
 
             {/* btn Play Trailer */}

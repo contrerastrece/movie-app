@@ -1,14 +1,15 @@
 import React from 'react'
-import UpcomingMovies from '../components/UpcomingMovies'
-import TopRated from '../components/TopRated'
-import PopularCarousel from '../components/PopularCarousel'
+import TrendCarousel from '../components/TrendCarousel'
+import Popular from '../components/Popular'
+import WatchNow from '../components/WatchNow'
 
 const Home = () => {
   return (
    <div className='pb-[5rem]'>
-    <PopularCarousel mediaType={"movie"} />
-    <UpcomingMovies mediaType={"movie"}/>
-    <TopRated mediaType={"movie"}/>
+    <TrendCarousel mediaType={"movie"} />
+    <Popular mediaType={"movie"}/>
+    <Popular mediaType={"tv"}/>
+    <WatchNow mediaType={"movie"}/>
    </div>
   )
 }

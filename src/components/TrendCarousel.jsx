@@ -3,10 +3,11 @@ import Carousel from "nuka-carousel";
 import "../assets/css/carousel.css";
 import useFetch from "../hook/useFetch";
 
-const PopularCarousel = () => {
+const TrendCarousel = () => {
   const [isDesktop, setIsDesktop] = useState(false);
-  const apiUrl ="movie/popular";
+  const apiUrl ="trending/all/week";
   const { data, loading } = useFetch(apiUrl);
+  // console.log(data,"🚩")
 
   useEffect(() => {
     // Función para verificar si es una versión de escritorio
@@ -42,8 +43,8 @@ const PopularCarousel = () => {
       ) : (
         <div className="w-full m-0 p-0 ">
           <Carousel {...optionsCarousel}>
-            {data.results.slice(0, 5).map((e) => (
-              <div key={e.id} className="cursor-pointer relative h-[33rem] ">
+            {data?.results?.slice(0, 10).map((e) => (
+              <div key={e.id} className="cursor-pointer relative">
                 <picture>
                   {/* <!-- Imagen para dispositivos móviles --> */}
                   <source
@@ -59,11 +60,12 @@ const PopularCarousel = () => {
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`}
                     alt=""
+                    loading="lazy"
                   />
                 </picture>
                 <div className="absolute z-10 content-text bottom-10  w-[90%] md:w-[60%] h-auto flex  flex-col items-center justify-center left-1/2 transform -translate-x-1/2">
-                  <h3 className="text-white text-4xl md:text-5xl font-bold my-5">
-                    {e.title}
+                  <h3 className="text-white text-3xl md:text-4xl font-bold my-3">
+                    {e.title || e.name}
                   </h3>
                   <p className="text-[0.9rem] line-clamp-2 font-extralight">
                     {e.overview}
@@ -79,4 +81,4 @@ const PopularCarousel = () => {
   );
 };
 
-export default PopularCarousel;
+export default TrendCarousel;
