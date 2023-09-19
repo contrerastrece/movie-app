@@ -4,9 +4,12 @@ function useFetch(url) {
   const baseUrl = "https://api.themoviedb.org/3/";
   const lng = url.includes("?") ? "&language=en-US" : "?language=en-US";
   // const page = "&page=1";
-  const watchRegion = "&watch_region=PE";
+  const vote_average = '&vote_average.gte=5';
+  const release_date='&release_date.gte=2000-01-01';
+  const air_date='&air_date.gte=2000-01-01'
+  const watchRegion = "?watch_region=PE";
   const sort = `&sort_by=popularity.desc`;
-  const link = baseUrl + url + lng + watchRegion  + sort;
+  const link = baseUrl + url + lng  + sort + vote_average;
   // console.log(link);
   const options = {
     method: "GET",

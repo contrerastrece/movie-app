@@ -1,6 +1,7 @@
 import React from "react";
 import useFetch from "../hook/useFetch";
 import Card from "./Card";
+import Loader from "./Loader";
 
 const UpcomingMovies = ({mediaType}) => {
   const apiUrl = `${mediaType}/upcoming`;
@@ -10,7 +11,7 @@ const UpcomingMovies = ({mediaType}) => {
     <>
       <h2>UpComming ⚡</h2>
       {loading ? (
-        <h2>Loading</h2>
+        <Loader/>
       ) : (
         <Card data={data?.results} loading={loading} mediaType={mediaType}/>
       )}

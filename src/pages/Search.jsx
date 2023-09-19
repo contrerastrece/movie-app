@@ -14,13 +14,13 @@ const Search = () => {
   };
 
   return (
-    <div className="flex flex-col items-center py-[2rem] gap-8 h-[100dvh]">
+    <div className="flex flex-col items-center py-[2rem] gap-8 min-h-[100dvh] pb-14">
       <form action="" onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
           type="text"
           placeholder="¿qué estas buscando?"
-          className="h-[2rem] rounded-[1rem] p-[1rem]"
+          className="h-[2rem] rounded-[1rem] p-[1rem] text-black"
         />
       </form>
 

@@ -10,7 +10,7 @@ const Trailer = ({ id, mediaType}) => {
   // const [trailer, setTrailer] = useState(null);
 
  const trailer=data?.results?.find(vid=>vid.name==="Official Trailer");
-//  console.log(trailer,"🫰");
+ console.log(trailer,"🫰");
 //   console.log(data);
   const opts = {
     playerVars: {
@@ -47,7 +47,7 @@ const Trailer = ({ id, mediaType}) => {
           ):""}
          </>
         )}
-        <h2>{trailer?<>Watch Trailer</>:""}</h2>
+        {trailer&&<h2>Watch Trailer</h2>}
     </div>
   );
 };

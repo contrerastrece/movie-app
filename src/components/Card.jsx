@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NoImage from "../assets/images/NoImage.jpg";
 import Points from "./Points";
+import Loader from "./Loader";
+// import NoImage from "../assets/images/NoImage.jpg";
 
 const Card = ({ data, loading, mediaType }) => {
   const [visibleItems, setVisibleItems] = useState(3);
+  const [loadedImages, setLoadedImages] = useState(0);
 
   const loadMoreItems = () => {
     // Incrementa la cantidad de elementos visibles cuando se hace clic en "Mostrar Más"
@@ -23,31 +26,43 @@ const Card = ({ data, loading, mediaType }) => {
     <div className="grid items-center p-2">
       <div className="grid grid-cols-3 gap-3">
         {loading ? (
-          <>Loading...</>
+          <Loader />
         ) : (
           <>
             {data?.slice(0, visibleItems).map((e) => (
               <Link
                 to={`../pages/Detail/${e.media_type || mediaType}/${e.id}`}
-                className="cursor-pointer relative flex justify-center items-center"
+                className="cursor-pointer relative flex flex-col  items-center bg-[#2b3645]  rounded-lg"
                 key={e.id}
               >
-                <img
-                  src={
-                    e.poster_path || e.profile_path
-                      ? `https://image.tmdb.org/t/p/w300/${
-                          e.poster_path || e.profile_path
-                        }`
-                      : NoImage
-                  }
-                  alt={e.title}
-                  className="rounded-lg "
-                  loading="lazy"
-                />
-                {/* <p className="absolute bg-white text-black">{e.media_type}</p> */}
-                <div className="absolute w-[2rem] bottom-2 right-1 bg-[#1e2732] rounded-full">
-                  <Points data={e} />
+                <div className="relative">
+                  <img
+                    src={
+                      e.poster_path || e.profile_path
+                        ? `https://image.tmdb.org/t/p/w300/${
+                            e.poster_path || e.profile_path
+                          }`
+                        : NoImage
+                    }
+                    alt={e.title}
+                    className="rounded-lg rounded-b-none "
+                    loading="lazy"
+                  />
+                  {/* points */}
+                  {e.vote_average >= 0 ? (
+                    <div className="absolute w-[2rem] bottom-2 right-1 bg-[#1e2732] rounded-full">
+                      <Points data={e} />
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
+                <div className="footer">
+                  <p className="text-[0.5rem] font-light">{e.title || e.name}</p>
+                 {/* {e.first_air_date && <p>{e.first_air_date.split("-")[0] || e.release_date.split("-")[0]} </p>} */}
+                </div>
+
+                {/* <p className="absolute bg-white text-black">{e.media_type}</p> */}
               </Link>
             ))}
           </>
