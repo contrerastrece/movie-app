@@ -1,7 +1,7 @@
 import React from "react";
 import { BiHomeAlt2, BiMovie, BiSearch } from "react-icons/bi";
 import { PiTelevisionSimpleBold } from "react-icons/pi";
-import "./menuBar.css";
+import "./MenuBar.css";
 import { Link } from "react-router-dom";
 const MenuBar = () => {
   return (
