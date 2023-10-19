@@ -28,8 +28,20 @@ const Detail = () => {
         baseColor="#6E707A"
         highlightColor="rgba(232, 232, 232, 0.25)"
       >
-        <Skeleton width={"90%"} height={"500px"} duration={0.5} containerClassName="flex justify-center items-center p-2"/>
-        <Skeleton width={"90%"} height={"10px"} duration={0.5} count={3} containerClassName="flex flex-col justify-center items-center p-2 gap-2"  inline />
+        <Skeleton
+          width={"90%"}
+          height={"500px"}
+          duration={0.5}
+          containerClassName="flex justify-center items-center p-2"
+        />
+        <Skeleton
+          width={"90%"}
+          height={"10px"}
+          duration={0.5}
+          count={3}
+          containerClassName="flex flex-col justify-center items-center p-2 gap-2"
+          inline
+        />
       </SkeletonTheme>
     );
   };
@@ -37,30 +49,63 @@ const Detail = () => {
   return (
     <div className="pb-16">
       {loading ? (
-        <Loader/>
+        <Loader />
       ) : (
         <>
           <div className="relative">
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
-              alt={data?.title || data?.name}
-              className="object-cover object-center  w-full  top-0"
-              loading="lazy"
-            />
-            {/* Shadow */}
-            <div className="absolute w-full top-0 left-0 h-full shadow-carousel"></div>
+            <div className="relative border md:w-screen md:h-32">
+              <div className="bg-cover bg-center h-auto relative">
+                <div
+                  className="border absolute bg-cover inset-0 "
+                  style={{
+                    backgroundImage: `url("https://image.tmdb.org/t/p/w780/${data.backdrop_path}")`,
+                    objectFit: "cover",
+                  }}
+                ></div>
+                {/* Capa de superposición */}
+                <div className="absolute inset-0 bg-[#1e2732] opacity-70"></div>
 
-            {/* Circle Average */}
-            <div className="w-[3rem] absolute bottom-4 right-4 font-bold ">
-              <Points data={data} />
+                <div className="relative flex items-center justify-center md:w-[20rem]">
+                  {/* <h1 className="text-white text-5xl ">Título de tu página</h1> */}
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
+                    alt={data?.title || data?.name}
+                    className="object-cover object-center w-full top-0 md:z-10 border md:w-14"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Shadow */}
+              <div className="absolute w-full top-0 left-0 h-full shadow-carousel"></div>
+              
+              {/* Circle Average */}
+              <div className="absolute w-[3rem] bottom-4 right-4 font-bold md:hidden">
+                <Points data={data} />
+              </div>
+
+              {/* btn Play Trailer */}
+              <div className=" absolute w-[3rem] bottom-4 left-4 cursor-pointer md:hidden">
+                <Trailer id={id} mediaType={media_type} />
+              </div>
             </div>
 
-            {/* btn Play Trailer */}
-            <div className="absolute bottom-4 left-4 border cursor-pointer">
-              <Trailer id={id} mediaType={media_type} />
+            {/* info */}
+            <div className="">
+              <h2 className="md:text-4xl">{data.title}</h2>
+              {/* Circle Average */}
+              <div className="hidden lg:visible md:w-[3rem] font-bold ">
+                <Points data={data} />
+              </div>
+
+              {/* btn Play Trailer */}
+              <div className="hidden md:visible md:w-[3rem] md:bottom-4 md:left-4 md:cursor-pointer">
+                <Trailer id={id} mediaType={media_type} />
+              </div>
+              <p className="">{data?.overview}</p>
+              {/* Categories */}
             </div>
           </div>
-          <p>{data?.overview}</p>
 
           {media_type === "tv" && (
             <>

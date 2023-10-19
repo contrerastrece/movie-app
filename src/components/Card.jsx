@@ -6,7 +6,7 @@ import Loader from "./Loader";
 // import NoImage from "../assets/images/NoImage.jpg";
 
 const Card = ({ data, loading, mediaType }) => {
-  const [visibleItems, setVisibleItems] = useState(3);
+  const [visibleItems, setVisibleItems] = useState(6);
   const [loadedImages, setLoadedImages] = useState(0);
 
   const loadMoreItems = () => {
@@ -24,7 +24,7 @@ const Card = ({ data, loading, mediaType }) => {
   // console.log("🫰",visibleItems,"/",data.length);
   return (
     <div className="grid items-center p-2">
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 md:grid-cols-6">
         {loading ? (
           <Loader />
         ) : (
@@ -57,8 +57,8 @@ const Card = ({ data, loading, mediaType }) => {
                     ""
                   )}
                 </div>
-                <div className="footer">
-                  <p className="text-[0.5rem] font-light">{e.title || e.name}</p>
+                <div className="footer w-full">
+                  <p className="text-[0.8rem] font-light truncate text-center px-2">{e.title || e.name}</p>
                  {/* {e.first_air_date && <p>{e.first_air_date.split("-")[0] || e.release_date.split("-")[0]} </p>} */}
                 </div>
 
